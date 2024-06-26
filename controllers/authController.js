@@ -19,7 +19,7 @@ exports.login = async (req, res) => {
     if (!usuarioEncontrado || !bcrypt.compareSync(senha, usuarioEncontrado.senha)) {
       return res.status(401).json({ erro: 'Usuário ou senha inválidos' });
     }
-    const token = jwt.sign({ id: usuarioEncontrado.id }, 'sua_chave_secreta', { expiresIn: '1h' });
+    const token = jwt.sign({ id: usuarioEncontrado.id }, '12341234', { expiresIn: '1h' });
     res.json({ token });
   } catch (erro) {
     res.status(400).json({ erro: erro.message });

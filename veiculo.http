@@ -1,4 +1,5 @@
-### Registrar um novo usuário (POST)
+# @name tokenacc
+###
 POST http://localhost:3000/auth/registrar
 Content-Type: application/json
 
@@ -7,7 +8,7 @@ Content-Type: application/json
   "senha": "bryann0510"
 }
 
-### Login para obter o token JWT (POST)
+###
 POST http://localhost:3000/auth/login
 Content-Type: application/json
 
@@ -15,42 +16,44 @@ Content-Type: application/json
   "usuario": "bryann",
   "senha": "bryann0510"
 }
+###
+POST http://localhost:3000/proprietarios
+Content-Type: application/json
 
-### Criar um novo veículo (POST)
+{
+  "cpf": "12244678909",
+  "nome": "Camargo",
+  "telefone": "47995568293"
+}
+
+###
+GET http://localhost:3000/proprietarios
+Content-Type: application/json
+
+###
 POST http://localhost:3000/veiculos
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzE5NDMwNDE1LCJleHAiOjE3MTk0MzQwMTV9.eAyuZURzR6Gpb9fICxMjjm9LtixJJqwTEaH1HsJRCmE
 
 {
-  "placa": "ABC1234",
-  "modelo": "Carro Modelo A",
-  "preco": 50000,
-  "cpfProprietario": "12345678901"
+  "placa": "JKD3987",
+  "modelo": "Ferrari",
+  "preco": 800000,
+  "cpfProprietario": "12244678909"
 }
 
-### Obter informações de um veículo específico (GET)
-GET http://localhost:3000/veiculos/ABC1234
-Authorization: Bearer abc,1234
+###
+GET http://localhost:3000/veiculos
 
-### Obter veículos por proprietário (GET)
-GET http://localhost:3000/veiculos/proprietario/12345678901
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzE5NDMwMTk3LCJleHAiOjE3MTk0MzM3OTd9.BANfLE-cGZMduAfzW8_KMsbvGuXfgk4M7pX0UzGKKlk
+###
+GET http://localhost:3000/veiculos/proprietarios/12244678901
 
-### Obter veículos por tipo (GET)
+###
 GET http://localhost:3000/veiculos/tipo/Luxo
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzE5NDMwMTk3LCJleHAiOjE3MTk0MzM3OTd9.BANfLE-cGZMduAfzW8_KMsbvGuXfgk4M7pX0UzGKKlk
 
-### Atualizar informações de um veículo (PUT)
-PUT http://localhost:3000/veiculos/ABC1234
+### 
+PUT http://localhost:3000/veiculos/JKD3987
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzE5NDMwMTk3LCJleHAiOjE3MTk0MzM3OTd9.BANfLE-cGZMduAfzW8_KMsbvGuXfgk4M7pX0UzGKKlk
 
 {
-  "modelo": "Carro Modelo B",
-  "preco": 80000,
-  "cpfProprietario": "12345678901"
+  "modelo": "Corsa"
 }
-
-### Deletar um veículo (DELETE)
-DELETE http://localhost:3000/veiculos/ABC1234
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzE5NDMwMTk3LCJleHAiOjE3MTk0MzM3OTd9.BANfLE-cGZMduAfzW8_KMsbvGuXfgk4M7pX0UzGKKlk
